@@ -150,10 +150,10 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><AddQuestion formatToSend={formatToSend} setNotes = {setNotes} setQuestion={setQuestion} questions = {questions} deleteQuestion = {deleteQuestion}/></div>
+  <div class="tab-pane fade show active container" id="home" role="tabpanel" aria-labelledby="home-tab"><AddQuestion formatToSend={formatToSend} setNotes = {setNotes} setQuestion={setQuestion} questions = {questions} deleteQuestion = {deleteQuestion}/></div>
   <div class="tab-pane fade container" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <br />    <ol class="list-group list-group-numbered"> {results.map((option) => (<ResultType option={option}/>))}</ol><AddResultCondition results = {results} setTypeId = {setTypeId} setGreaterThan = {setGreaterThan} setLessThan = {setLessThan} setResultText = {setResultText} formatCondition = {formatCondition}/>
 </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} sendResult = {sendResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
+  <div class="tab-pane fade container" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} sendResult = {sendResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
 </div>
 </div>
         

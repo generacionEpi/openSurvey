@@ -76,6 +76,7 @@ function App() {
     return (
       <div>
       <Header logo = { logo } token = {undefined}></Header>
+      <br />
          <BrowserRouter>
         <Switch>
       <Route exact path="/" >
@@ -91,7 +92,9 @@ function App() {
   return (
     <div>
       <Header logo = {logo} />
-      <BrowserRouter>
+      <br />
+
+      <BrowserRouter >
         <Switch>
         <Route exact path="/" >
         <Questions questions = {questions} responses ={responses} setResponses = {setResponses}  results = {results} setResults= {setResults} serverAddress = {serverAddress}/>
