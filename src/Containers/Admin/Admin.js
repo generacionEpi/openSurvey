@@ -83,6 +83,28 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
       .then(()=>{      getData()
       })
    }
+   const submitResult = () => {
+
+    if(resultTitle!= ''){
+      const sendData = async () => {
+          var body = {obj : {"range0":greaterThan,"range1":lessThan, result : resultText}, id : typeId}
+          const fromServer = await sendResult({text : resultTitle, type : "2column", results : []})
+
+          if(fromServer.status == false){
+            alert("Variable NOT added")
+          }else{
+            alert("Variable has been added")
+           
+          }
+  
+          
+       }
+       sendData()
+    }else{
+        alert("variable is empty")
+    }
+
+}
    const formatCondition = (idOfOption) => {
 
       if(lessThan!= '' && greaterThan != ''){
@@ -153,7 +175,7 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
   <div class="tab-pane fade show active container" id="home" role="tabpanel" aria-labelledby="home-tab"><AddQuestion formatToSend={formatToSend} setNotes = {setNotes} setQuestion={setQuestion} questions = {questions} deleteQuestion = {deleteQuestion}/></div>
   <div class="tab-pane fade container" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <br />    <ol class="list-group list-group-numbered"> {results.map((option) => (<ResultType option={option}/>))}</ol><AddResultCondition results = {results} setTypeId = {setTypeId} setGreaterThan = {setGreaterThan} setLessThan = {setLessThan} setResultText = {setResultText} formatCondition = {formatCondition}/>
 </div>
-  <div class="tab-pane fade container" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} sendResult = {sendResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
+  <div class="tab-pane fade container" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} submitResult = {submitResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
 </div>
 </div>
         
@@ -164,16 +186,16 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
 
 
 
-const AddResult = ({results, setResultTitle, sendResult, deleteResult, resultTitle}) => {
+const AddResult = ({results, setResultTitle, submitResult, deleteResult, resultTitle}) => {
   return(
     <div className="container">
-    <form onSubmit={()=>{sendResult({text : resultTitle, type : "2column", results : []})}}>
+    <form >
       
   <div class="mb-3">
     <label for="notes" class="form-label">Title</label>
     <textarea class="form-control" id="notes" rows="1" placeholder="Notes" onChange={(e)=>{setResultTitle(e.target.value)}}></textarea>
   </div>
-  <button type="submit" class="btn btn-primary btn-lg">Add Question</button>
+  <button type="submit" class="btn btn-primary btn-lg" onClick={submitResult}>Add Variable</button>
 
     </form>
     <br/>
