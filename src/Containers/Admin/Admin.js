@@ -9,9 +9,20 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
     //Conditional stuff
     const [greaterThan, setGreaterThan] = useState()
     const [lessThan, setLessThan] = useState()
-    const [typeId, setTypeId] = useState()
+    const [typeId, setTypeId] = useState('')
     const [resultText, setResultText] = useState()
-   
+
+    //Set id of result to add condition to as the first option since we detect onChange
+    useEffect(() =>{
+      if(results[0] && typeId == ''){
+        setTypeId(results[0].id)
+
+    }
+  
+  
+  
+},[ results ])
+  
   
     async function getQuestions() {
       return fetch(serverAddress+'/getQuestions', {
@@ -139,10 +150,10 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><AddQuestion formatToSend={formatToSend} setNotes = {setNotes} setQuestion={setQuestion} questions = {questions} deleteQuestion = {deleteQuestion}/></div>
+  <div class="tab-pane fade show active container" id="home" role="tabpanel" aria-labelledby="home-tab"><AddQuestion formatToSend={formatToSend} setNotes = {setNotes} setQuestion={setQuestion} questions = {questions} deleteQuestion = {deleteQuestion}/></div>
   <div class="tab-pane fade container" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <br />    <ol class="list-group list-group-numbered"> {results.map((option) => (<ResultType option={option}/>))}</ol><AddResultCondition results = {results} setTypeId = {setTypeId} setGreaterThan = {setGreaterThan} setLessThan = {setLessThan} setResultText = {setResultText} formatCondition = {formatCondition}/>
 </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} sendResult = {sendResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
+  <div class="tab-pane fade container" id="contact" role="tabpanel" aria-labelledby="contact-tab"><AddResult results = {results} setResultTitle = {setResultTitle} sendResult = {sendResult} deleteResult = {deleteResult} resultTitle = {resultTitle}/></div>
 </div>
 </div>
         
