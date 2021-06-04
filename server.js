@@ -169,6 +169,7 @@ app.post('/submitResults', async (req, res) => {
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
+            console.log("message not sent", error)
             res.send({status : false, msg : "An error has occured"})
 
         } else {
