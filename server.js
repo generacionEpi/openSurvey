@@ -47,7 +47,7 @@ var transporter = nodemailer.createTransport({
 MongoClient.connect(url, function(err, db) {
 
     if (err) throw err;
-    var dbo = db.db("multiQuiz");
+    var dbo = db.db("openSurvey");
 
     console.log("Connected to database")
     app.use(async (req, res, next) =>{
