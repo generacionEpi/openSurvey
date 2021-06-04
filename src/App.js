@@ -66,10 +66,7 @@ function App() {
   
 }, [results ])
 
-  useEffect(() => {
-    setQuestions([{question : "Hi this iswbw[eIFBU;skfjbsLJKfbLASKFblASKBfkjaSbaksbfAKSFbaskjfbaksjfbaklsjfblASKj clsajk jklkjf baskjb] the question", id : "id1" ,notes: "Just some subnotes about the question"},{question : "this one is a short one", id: "id2", notes: "This is bareley a question"},{question : "This is another question that is cool", id:'id3', notes : ''}])
-
-  }, []);
+ 
 
 
   if(!token) {
