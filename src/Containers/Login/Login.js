@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-async function loginUser(credentials) {
-    return fetch('http://192.168.10.102:8080/login', {
+
+const Login = ({setToken, serverAddress}) => {
+  async function loginUser(credentials) {
+    return fetch(serverAddress+'/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -11,7 +13,6 @@ async function loginUser(credentials) {
     })
       .then(data => data.json())
    }
-const Login = ({setToken}) => {
 
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
