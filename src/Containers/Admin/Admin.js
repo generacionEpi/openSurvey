@@ -9,9 +9,37 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
     //Conditional stuff
     const [greaterThan, setGreaterThan] = useState()
     const [lessThan, setLessThan] = useState()
-    const [typeId, setTypeId] = useState()
+    const [typeId, setTypeId] = useState(results[0].id)
     const [resultText, setResultText] = useState()
-   
+
+    //Set id of result to add condition to as the first option since we detect onChange
+    useEffect(() =>{
+      if(results[0]){
+        var responses = {}
+        setTypeId(results[0].id)
+
+    }
+  
+  
+  
+},[])
+    useEffect(() =>{
+      if(results[0]){
+        var responses = {}
+  
+        //For each result (variable, this way we can have infinite)
+        for(var i=0;i<results.length;i++){
+          responses[results[i].id] = {}
+  
+  
+        }
+        setResponses(responses)
+  
+      }
+    
+    
+    
+  }, [results ])
   
     async function getQuestions() {
       return fetch(serverAddress+'/getQuestions', {
