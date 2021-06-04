@@ -8,7 +8,7 @@ import useToken from './Components/useToken';
 import { BrowserRouter, Route, Switch, useLocation} from 'react-router-dom';
 import Login from './Containers/Login/Login'
 function App() {
-  const serverAddress = "http://192.168.10.102:8080"
+  const serverAddress = "http://localhost:8080"
   const [questions, setQuestions] = useState([])
   const [results, setResults] = useState([])
   const [responses, setResponses] = useState({})
@@ -83,7 +83,7 @@ function App() {
 
       </Route>
       <Route >
-      <Login setToken={setToken} />
+      <Login setToken={setToken} serverAddress = {serverAddress}/>
         </Route>
       </Switch>
       </BrowserRouter></div>)
