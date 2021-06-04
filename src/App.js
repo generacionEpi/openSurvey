@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './Assets/logo.jpeg'
+import logo from './logo.svg'
 import Header from './Components/Header/Header'
 import Questions from './Components/Questions/Questions'
 import Admin from './Containers/Admin/Admin'
