@@ -249,7 +249,7 @@ const QuestionAndDelete = ({question, index, deleteQuestion}) => {
   const AddResultCondition = ({results, setGreaterThan, setLessThan, setTypeId, setResultText, formatCondition}) => {
   return(
 
-<form onSubmit={formatCondition}><br/>
+<form ><br/>
   <h1 className="display-text">Add Condition</h1>
 <select class="form-select" aria-label="Default select example" onChange={(e)=>{setTypeId(e.target.value)}}>
 <option disabled selected value> -- select a variable -- </option>
@@ -265,7 +265,7 @@ const QuestionAndDelete = ({question, index, deleteQuestion}) => {
   <span class="input-group-text">Result</span>
   <textarea class="form-control" aria-label="With textarea" onChange={(e)=>{setResultText(e.target.value)}}></textarea>
 </div>
-<button class="btn btn-primary" type="submit" >Submit</button>
+<button class="btn btn-primary" type="button" onClick={formatCondition} >Submit</button>
 
 </form>
 
