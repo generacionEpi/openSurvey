@@ -193,9 +193,9 @@ const AddResult = ({results, setResultTitle, submitResult, deleteResult, resultT
       
   <div class="mb-3">
     <label for="notes" class="form-label">Title</label>
-    <textarea class="form-control" id="notes" rows="1" placeholder="Notes" onChange={(e)=>{setResultTitle(e.target.value)}}></textarea>
+    <textarea class="form-control" id="notes" rows="1" placeholder="Notes" onChange={(e)=>{setResultTitle(e.target.value)}} required></textarea>
   </div>
-  <button type="submit" class="btn btn-primary btn-lg" onClick={submitResult}>Add Variable</button>
+  <button type="button" class="btn btn-primary btn-lg" onClick={submitResult}>Add Variable</button>
 
     </form>
     <br/>
