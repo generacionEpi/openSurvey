@@ -18,9 +18,6 @@ const Admin = ({results, questions, setQuestions, serverAddress}) => {
         setTypeId(results[0].id)
 
     }
-  
-  
-  
 },[ results ])
   
   
@@ -255,6 +252,7 @@ const QuestionAndDelete = ({question, index, deleteQuestion}) => {
 <form onSubmit={formatCondition}><br/>
   <h1 className="display-text">Add Condition</h1>
 <select class="form-select" aria-label="Default select example" onChange={(e)=>{setTypeId(e.target.value)}}>
+<option disabled selected value> -- select a variable -- </option>
   {results.map((option)=> (  <option value={option.id}>{option.text}</option>))}
 
 </select>
